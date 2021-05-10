@@ -1,0 +1,151 @@
+\documentclass{article}
+
+% set font encoding for PDFLaTeX, XeLaTeX, or LuaTeX
+\usepackage{ifxetex,ifluatex}
+\if\ifxetex T\else\ifluatex T\else F\fi\fi T%
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+\usepackage{hyperref}
+
+\title{Title of Document}
+\author{Name of Author}\documentclass[10pt,a4paper,oneside]{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[english, russian]{babel}%Подключаем русский язык.
+\usepackage{graphicx}
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=3cm} %Левое поле.
+\geometry{right=2cm} %Правое поле.
+\geometry{top=3cm} %Верхнее поле.
+\geometry{bottom=2cm} %Нижнее поле.
+
+
+%Начало документа
+\begin{document}
+
+%Создаём титульник.
+\begin{titlepage}
+\newpage
+	%Название ВУЗа и институт.
+	\begin{center}
+		\Large Санкт-Петербургский Государственный Политехнический Университет\\
+		Институт Компьютерных Наук и Технологий\\
+	\end{center}
+	%Кафедра.
+	\begin{center}
+		\large\textbf {Высшая школа интеллектуальных систем и суперкомпьютерных технологий}
+	\end{center}
+	
+	%Пропуск места. 
+	\vspace{5em}
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Название работы.
+	\begin{center}
+		\large{Отчёт по лабораторной работе №1 \\ на тему \\
+		\textbf{Звуки и Сигналы} }
+	\end{center}
+	
+	%Делаем пропуск и пишем студента и преподавателя.
+	\vspace{25em}
+	\begin{flushright}
+		\textbf{Работу выполнил\\}Студент группы 3530901/80203 \\ Танашкин В.А.\\
+		\textbf{Преподаватель\\}Богач Н.В. 
+	\end{flushright}
+	
+	\vspace{\fill}%В самом низу
+	\begin{center}
+	Санкт-Петербург, 2021 год	
+	\end{center}
+\end{titlepage} %Закончили титульный лист.
+
+\section{Настройка проекта}
+Устанавливаем jupiter с помощью дистрибутива anaconda. Скачиваем zip thinkdsp и открываем необходимые файлы для работы, также создаем собственный файл, где будем работать со звуками.
+
+\section{Скачивание звука и работа с ним}
+В этом упражнении мы пользуемся помощью беслпатного ресурса с различными звуками и качаем в папку репозитория звук, подходящий для нашей лабораторной работы. В папке code лежит файл "bell.wav" - это и есть наш звук.  Дальше мы обращаемся напрямую к файлу звука и обрезаем интервал в полсекунды
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/1.png}
+        \caption{2}
+        \label{fig:first}
+\end{figure}
+
+\section{Спектр звука}
+
+Рассмотрим спектр нашего полусекундного сегмента звука.
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/2.png}
+        \caption{3}
+        \label{fig:second}
+\end{figure}
+
+С помощью lowPass и highPass мы отфильтровали наш спектр и убрали лишние гармоники. 
+
+Преобразуем спектр обратно в звуковой сигнал и послушаем результат 
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/4.png}
+        \caption{4}
+        \label{fig:fourth}
+\end{figure}
+\section{Создание сложного сигнала}
+
+Создадим сложный сигнал
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/5.png}
+        \caption{3}
+        \label{fig:third}
+\end{figure}
+
+Наш сигнал получился монотонным, довольно неприятным. Были использованы частоты нот 3-4 октав.
+
+Сейчас выведем спектр нашего сигнала. И посмотрим на результаты.
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/6.png}
+        \caption{Исходный звук}
+        \label{5}
+\end{figure}
+
+Добавим еще один сигнал
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/8.png}
+        \caption{6}
+        \label{fig:sixth}
+\end{figure}
+
+\section{Функция изменения длины сигнала}
+Напишем собственный метод изменения длины сигнала. Испольщуем его для увеличения/уменьшения длины сигнала.
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/9.png}
+        \caption{7}
+        \label{fig:seveth}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pic/10.png}
+        \caption{8}
+        \label{fig:eight}
+\end{figure}
+В данной лоабораторной работе я получил навыки работы со звками и спектрами этих звуков. Научился находить фундаментальные пики, определять частоты и ускорять/замедлять сигналы.
+\end{document}
+
